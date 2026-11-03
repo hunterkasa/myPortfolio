@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-deep: #0c0817;
+    --bg-primary: #120c24;
+    --bg-card: #17102e;
+    --bg-card-hover: #20173e;
+    --border-lofi: #322358;
+    --border-highlight: #5b3f9c;
+    --text-primary: #f8f4ff;
+    --text-secondary: #d8c8f2;
+    --text-muted: #9f8ec2;
+    --lofi-purple: #c084fc;
+    --lofi-lavender: #e9d5ff;
+    --lofi-amethyst: #a855f7;
+    --lofi-rose: #f472b6;
+    --lofi-amber: #fcd34d;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #0c0817;
+    color: #f8f4ff;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #0c0817;
+    color: #d8c8f2;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #c084fc;
+    color: #0c0817;
+  }
+
+  /* R-39: Explicit cursor styling in base CSS layer */
+  a[href], button, summary, select, label[for], [role="button"], [role="tab"] {
+    cursor: pointer;
+  }
+
+  button:disabled, a[aria-disabled="true"], [disabled] {
+    cursor: not-allowed;
+  }
+
+  /* R-32: Visible focus outlines */
+  :focus-visible {
+    outline: 2px solid #c084fc;
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Lofi Cozy Grid & Ambient Textures */
+.lofi-grid-bg {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(192, 132, 252, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(192, 132, 252, 0.05) 1px, transparent 1px);
+}
+
+.lofi-vignette {
+  background: 
+    radial-gradient(circle at 20% 15%, rgba(168, 85, 247, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 65%, rgba(124, 58, 237, 0.09) 0%, transparent 55%),
+    radial-gradient(circle at 50% 90%, rgba(244, 114, 182, 0.05) 0%, transparent 60%);
+}
+
+/* Analog Tape Reel Spinning */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-tape-spin {
+  animation: spin-slow 4s linear infinite;
+}
+
+/* Custom High-Contrast Lofi Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c0817;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #322358;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c084fc;
+}
+
+/* Monospace fonts */
+code, pre, .font-mono {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
