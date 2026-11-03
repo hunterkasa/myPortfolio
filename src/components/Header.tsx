@@ -51,14 +51,13 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Brand Monogram & Codeforces Profile Link */}
-          <a
-            href={portfolioData.contact.codeforces}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-[#c084fc] focus-visible:outline-none rounded-lg p-1"
-            aria-label="Visit Codeforces profile for hunterkasa_ (opens in new tab)"
-            title="Visit Codeforces profile (hunterkasa_)"
+          {/* Brand Monogram & Scroll to Top */}
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="cursor-pointer flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-[#c084fc] focus-visible:outline-none rounded-lg p-1 text-left"
+            aria-label="Return to beginning of page"
+            title="Return to top"
           >
             <div className="w-9 h-9 rounded-lg bg-[#1b1235] border border-[#3e2c6c] flex items-center justify-center text-[#c084fc] font-mono text-sm font-bold shadow-inner group-hover:border-[#c084fc] transition-colors">
               <span className="tracking-tighter">KS</span>
@@ -72,7 +71,7 @@ export default function Header() {
                 Dhaka // CP 4,300+ Solved
               </span>
             </div>
-          </a>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1 bg-[#150f29]/80 border border-[#322358] px-3 py-1.5 rounded-full backdrop-blur-sm" aria-label="Main Navigation">
