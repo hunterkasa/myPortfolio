@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { portfolioData } from "@/data/portfolio";
-import { Menu, X, Disc3, Radio } from "lucide-react";
+import { Menu, X, Disc3, Radio, ArrowUpRight } from "lucide-react";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -94,12 +94,19 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Right Action: Lofi Mood Status & Direct Contact */}
-          <div className="hidden sm:flex items-center gap-3">
-            <div className="flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono bg-[#1b1235] border border-[#3e2c6c] text-[#d8c8f2]">
-              <Disc3 className="w-3.5 h-3.5 text-[#c084fc] animate-tape-spin" aria-hidden="true" />
-              <span>LOFI MOOD: 3 AM</span>
-            </div>
+          {/* Right Action: Resume & Direct Contact */}
+          <div className="hidden sm:flex items-center gap-2.5">
+            <a
+              href={portfolioData.personal.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3.5 py-1.5 text-xs font-mono font-medium rounded-full bg-[#1b1235] hover:bg-[#251848] text-[#c084fc] border border-[#5b3f9c] transition-colors min-h-[36px] flex items-center gap-1.5"
+              title="View Resume PDF"
+            >
+              <span>Resume</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
+
             <a
               href="#contact"
               className="px-3.5 py-1.5 text-xs font-mono font-medium rounded-full bg-[#8b5cf6] hover:bg-[#a855f7] text-white transition-colors min-h-[36px] flex items-center shadow-[0_0_15px_rgba(139,92,246,0.3)]"
@@ -137,6 +144,15 @@ export default function Header() {
               {link.name}
             </a>
           ))}
+          <a
+            href={portfolioData.personal.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block px-3 py-3 rounded-lg text-sm font-mono text-[#c084fc] bg-[#1b1235] border border-[#5b3f9c] flex items-center justify-between min-h-[44px]"
+          >
+            <span>View Resume (PDF)</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </a>
           <div className="pt-3 border-t border-[#322358] flex justify-between items-center text-xs font-mono text-[#9f8ec2]">
             <span>Dhaka, Bangladesh</span>
             <a

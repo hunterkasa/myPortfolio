@@ -2,22 +2,21 @@
 
 import React, { useState, useEffect } from "react";
 import { portfolioData } from "@/data/portfolio";
-import { GithubIcon, LinkedinIcon, CodeforcesIcon } from "@/components/Icons";
+import { GithubIcon, CodeforcesIcon } from "@/components/Icons";
 import { 
   Copy, 
   Check, 
   Terminal, 
   Clock, 
   ArrowUp,
-  Phone,
+  FileText,
   Send,
   Disc3,
-  ExternalLink
+  ArrowUpRight
 } from "lucide-react";
 
 export default function ContactFooter() {
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
 
   useEffect(() => {
@@ -42,12 +41,6 @@ export default function ContactFooter() {
     navigator.clipboard.writeText(portfolioData.contact.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2200);
-  };
-
-  const copyPhone = () => {
-    navigator.clipboard.writeText(portfolioData.contact.phone);
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2200);
   };
 
   const scrollToTop = () => {
@@ -97,13 +90,6 @@ export default function ContactFooter() {
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <div className="text-xs font-mono text-[#9f8ec2] uppercase font-semibold mb-1">Mobile and WhatsApp Direct</div>
-                  <div className="text-lg font-mono font-bold text-[#c084fc]">
-                    {portfolioData.contact.phone}
-                  </div>
-                </div>
-
                 <p className="text-xs sm:text-sm text-[#d8c8f2] font-mono leading-relaxed mb-6 font-normal">
                   Based in Dhaka, Bangladesh (UTC+6). Active for engineering roles, technical challenges, hackathons, and algorithmic collaboration.
                 </p>
@@ -138,24 +124,17 @@ export default function ContactFooter() {
                   )}
                 </button>
 
-                <button
-                  type="button"
-                  onClick={copyPhone}
-                  className="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 text-xs font-mono text-[#f8f4ff] bg-[#20173e] border border-[#3e2c6c] hover:border-[#c084fc] focus-visible:ring-2 focus-visible:ring-[#c084fc] focus-visible:outline-none rounded-lg transition-all active:scale-[0.98] font-semibold min-h-[40px]"
-                  aria-label="Copy phone number to clipboard"
+                <a
+                  href={portfolioData.personal.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer inline-flex items-center gap-2 px-4 py-2.5 text-xs font-mono text-[#f8f4ff] bg-[#20173e] border border-[#3e2c6c] hover:border-[#c084fc] focus-visible:ring-2 focus-visible:ring-[#c084fc] focus-visible:outline-none rounded-lg transition-all active:scale-[0.98] font-semibold min-h-[40px] group"
+                  aria-label="View official resume PDF in a new tab"
                 >
-                  {copiedPhone ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-[#c084fc]" aria-hidden="true" />
-                      <span className="text-[#c084fc] font-bold">PHONE COPIED</span>
-                    </>
-                  ) : (
-                    <>
-                      <Phone className="w-3.5 h-3.5 text-[#c084fc]" aria-hidden="true" />
-                      <span>COPY PHONE</span>
-                    </>
-                  )}
-                </button>
+                  <FileText className="w-3.5 h-3.5 text-[#c084fc] group-hover:text-[#e9d5ff]" aria-hidden="true" />
+                  <span>VIEW RESUME (PDF)</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#9f8ec2] group-hover:text-[#c084fc]" aria-hidden="true" />
+                </a>
               </div>
             </div>
 
@@ -257,6 +236,16 @@ export default function ContactFooter() {
           </div>
 
           <div className="flex items-center gap-4">
+            <a
+              href={portfolioData.personal.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] text-[#c084fc] hover:underline font-semibold flex items-center gap-1"
+            >
+              <span>RESUME.PDF</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
+            <span className="text-[#5b3f9c]">•</span>
             <span className="text-[11px] text-[#9f8ec2] font-medium">
               NEXT.JS • TYPESCRIPT • TAILWIND CSS
             </span>

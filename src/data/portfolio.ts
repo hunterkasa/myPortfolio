@@ -63,7 +63,12 @@ export interface PortfolioData {
     institution: string;
     institutionShort: string;
     department: string;
+    cgpa: string;
+    expectedGraduation: string;
+    highSchool: string;
+    secondarySchool: string;
     profileImage: string;
+    resumeUrl: string;
     location: {
       city: string;
       country: string;
@@ -77,17 +82,21 @@ export interface PortfolioData {
       subtext: string;
     };
     bio: string[];
+    coachingRole: {
+      title: string;
+      organization: string;
+      period: string;
+      details: string[];
+    };
     lofiAtmosphere: {
       trackTitle: string;
       artist: string;
       currentTime: string;
       moodQuote: string;
     };
-    resumeStatus: string;
   };
   contact: {
     email: string;
-    phone: string;
     github: string;
     linkedin: string;
     codeforces: string;
@@ -119,12 +128,17 @@ export const portfolioData: PortfolioData = {
     shortName: "Saad",
     handle: "hunterkasa",
     monogram: "KS",
-    title: "Competitive Programmer & Systems / Backend Developer",
+    title: "Competitive Programmer, Trainee ACM Coach & Software Engineer",
     tagline: "Late night memory allocations, graph algorithms, and 3 AM Accepted verdicts under rainy skies.",
     institution: "American International University-Bangladesh",
     institutionShort: "AIUB",
-    department: "Department of Computer Science & Engineering",
+    department: "Department of Computer Science & Engineering (Information Systems)",
+    cgpa: "3.60 / 4.00",
+    expectedGraduation: "Expected April 2027",
+    highSchool: "Adamjee Cantonment College (ACC) | H.S.C. Science (GPA: 5.00 / 5.00)",
+    secondarySchool: "Adamjee Cantonment Public School (ACPS) | S.S.C. Science (GPA: 5.00 / 5.00)",
     profileImage: "/profile.jpg",
+    resumeUrl: "/resume.pdf",
     location: {
       city: "Dhaka",
       country: "Bangladesh",
@@ -138,21 +152,28 @@ export const portfolioData: PortfolioData = {
       subtext: "Over 4,300+ algorithmic problems solved across platforms.",
     },
     bio: [
-      "I am an undergraduate Computer Science student at AIUB and an active competitive programmer. My engineering intuition is forged in the silence of late-night contest rounds, navigating strict memory limits, branch prediction, and complex graph flows where a single constant factor separates an Accepted from a Time Limit Exceeded.",
-      "Beyond contests, I build full-stack architectures and low-level software in C++, C# (.NET), Java, and Python. Whether crafting custom contest engines, writing OpenGL graphics pipelines, or architecting enterprise .NET MVC backends, I care deeply about deterministic execution, cache locality, and systems that stay reliable under load.",
+      "I am an undergraduate Computer Science student at AIUB, a competitive programmer, and a Trainee ACM Coach. My engineering intuition is forged in the silence of late-night contest rounds, navigating strict memory limits, branch prediction, and complex graph flows where a single constant factor separates an Accepted from a Time Limit Exceeded.",
+      "Beyond contests, I build scalable full-stack architectures and low-level software in C++, C# (.NET), Python, and PHP. Whether crafting custom contest engines, writing OpenGL graphics pipelines, or architecting enterprise .NET MVC backends, I care deeply about deterministic execution, cache locality, and systems that stay reliable under load.",
     ],
+    coachingRole: {
+      title: "Competitive Programming Trainee Coach / Student Mentor",
+      organization: "AIUB ACM Coaching Program",
+      period: "2024 to Present",
+      details: [
+        "Assist in training junior competitors in fundamental data structures, graph theory, and dynamic programming algorithms.",
+        "Participate in contest preparation, problem-set curation, and review sessions for collegiate ICPC bootcamps.",
+      ],
+    },
     lofiAtmosphere: {
-      trackTitle: "Cyan & Twilight Violet // Late-Night Coding Session",
+      trackTitle: "Twilight Violet // Late-Night Coding Session",
       artist: "hunterkasa (stream_01.wav)",
       currentTime: "03:42 AM",
       moodQuote: "The terminal cursor blinks in the dark. 4,300 problems later, the code still speaks in silence.",
     },
-    resumeStatus: "Resume currently being updated (Available on request via email)",
   },
 
   contact: {
     email: "hunterkasa@gmail.com",
-    phone: "01516566669",
     github: "https://github.com/hunterkasa",
     linkedin: "https://www.linkedin.com/in/hunterkasa",
     codeforces: "https://codeforces.com/profile/hunterkasa_",
@@ -182,24 +203,17 @@ export const portfolioData: PortfolioData = {
       rank: "Expert",
       problemsSolved: "3,500+",
       profileUrl: "https://codeforces.com/profile/hunterkasa_",
-      accentColor: "#22d3ee",
+      accentColor: "#c084fc",
       highlight: "Max Rating 1618 (Expert): 3,500+ Accepted Submissions",
     },
     {
       platform: "AtCoder",
       handle: "Hunterkasa",
+      rating: "300+",
       problemsSolved: "300+",
       profileUrl: "https://atcoder.jp/users/Hunterkasa",
-      accentColor: "#c084fc",
-      highlight: "300+ Problems Solved across ABC and ARC rounds",
-    },
-    {
-      platform: "LightOJ",
-      handle: "hunterkasa",
-      problemsSolved: 236,
-      profileUrl: "https://lightoj.com/user/hunterkasa",
-      accentColor: "#22d3ee",
-      highlight: "236 Classical Problems Solved (Graph & Dynamic Programming)",
+      accentColor: "#a855f7",
+      highlight: "Regular participant in AtCoder Beginner & Regular Contests",
     },
     {
       platform: "CSES Problem Set",
@@ -207,38 +221,46 @@ export const portfolioData: PortfolioData = {
       problemsSolved: "130+",
       profileUrl: "https://cses.fi/user/60812",
       accentColor: "#c084fc",
-      highlight: "130+ Rigorous Core Algorithm & Data Structure Tasks",
+      highlight: "Advanced Tree Algorithms, Dynamic Programming, Mathematics & Graph Theory",
+    },
+    {
+      platform: "LightOJ",
+      handle: "hunterkasa",
+      problemsSolved: "236",
+      profileUrl: "https://lightoj.com/user/hunterkasa",
+      accentColor: "#a855f7",
+      highlight: "236 Solves: Classical Dynamic Programming, Number Theory, Geometry",
     },
     {
       platform: "Toph",
       handle: "hunterkasa",
       problemsSolved: "150+",
-      profileUrl: "https://toph.co",
-      accentColor: "#22d3ee",
-      highlight: "150+ Problems Solved in National Contests",
+      profileUrl: "https://toph.co/u/hunterkasa",
+      accentColor: "#c084fc",
+      highlight: "150+ Solved in National Arenas and Community Contests",
     },
   ],
 
   achievements: [
     {
-      title: "ICPC Asia Dhaka Regional 2025",
+      title: "ICPC Asia Dhaka Regional Preliminary Contest 2025",
       organization: "International Collegiate Programming Contest",
       year: "2025",
       placement: "35th Place",
       standingNumber: 35,
       category: "ICPC",
-      description: "Secured 35th position in the fiercely contested ICPC Asia Dhaka Regional Online Preliminary round, battling against elite university programming teams nationwide.",
-      metrics: "35th Online Preliminary",
+      description: "Ranked 35th nationally among top university teams across Bangladesh in the rigorous regional preliminary stage.",
+      metrics: "Rank 35 (National Preliminary)",
     },
     {
-      title: "AIUB Intra-University Programming Contest",
-      organization: "AIUB Computer Club (AIUBCC)",
+      title: "AIUB Intra University Programming Contest 2024",
+      organization: "American International University-Bangladesh",
       year: "2024",
-      placement: "2nd Place (1st Runner-Up)",
+      placement: "Runner-Up (2nd Place)",
       standingNumber: 2,
       category: "Intra-University",
-      description: "Finished 2nd overall in the university-wide championship, solving high-difficulty algorithmic challenges under high-pressure on-site conditions.",
-      metrics: "Rank 2 Nationwide AIUB Finalist",
+      description: "Secured 2nd place overall in the premier competitive programming championship at AIUB.",
+      metrics: "Runner-Up Finalist",
     },
     {
       title: "CUET IUPC 2025",
@@ -247,18 +269,18 @@ export const portfolioData: PortfolioData = {
       placement: "15th Place",
       standingNumber: 15,
       category: "National IUPC",
-      description: "Ranked 15th overall in the national inter-university contest, demonstrating mastery in advanced tree structures and mathematical problem-solving.",
-      metrics: "Top 15 National Placement",
+      description: "15th place in national collegiate contest against premier engineering institutions across Bangladesh.",
+      metrics: "Rank 15 (National Division)",
     },
     {
-      title: "IUT IUPC 2025",
+      title: "IUT IUPC",
       organization: "Islamic University of Technology",
       year: "2025",
       placement: "15th Place",
       standingNumber: 15,
       category: "National IUPC",
-      description: "15th place on-site finish competing against top-tier competitive programming teams from across Bangladesh.",
-      metrics: "Rank 15",
+      description: "Ranked 15th in the competitive programming battle hosted by IUT.",
+      metrics: "Top 15 Finish",
     },
     {
       title: "Metropolitan University IUPC 2025",
@@ -267,7 +289,7 @@ export const portfolioData: PortfolioData = {
       placement: "19th Place",
       standingNumber: 19,
       category: "National IUPC",
-      description: "Top 20 national finish with multi-problem Accepted verdicts in dynamic programming and network flow.",
+      description: "Top-20 national standing among competitive collegiate programmers.",
       metrics: "Rank 19",
     },
     {
@@ -277,17 +299,17 @@ export const portfolioData: PortfolioData = {
       placement: "26th Place",
       standingNumber: 26,
       category: "National IUPC",
-      description: "Placed 26th in one of the most competitive national arenas, solving complex combinatorial problems.",
+      description: "Competed in the prestigious SUST on-site championship.",
       metrics: "Rank 26",
     },
     {
-      title: "NSUCEC Cybernauts IUPC 2025",
-      organization: "North South University Computer & Engineering Club",
+      title: "NSUCEC Cybernauts IUPC",
+      organization: "North South University",
       year: "2025",
       placement: "29th Place",
       standingNumber: 29,
       category: "National IUPC",
-      description: "Top 30 finish in national competition with consistent speed and accuracy.",
+      description: "Achieved 29th place in the timed multi-problem national arena.",
       metrics: "Rank 29",
     },
   ],
@@ -295,46 +317,47 @@ export const portfolioData: PortfolioData = {
   skills: [
     {
       category: "Programming Languages",
-      description: "Core languages used daily for competitive programming, systems tooling, and software engineering.",
+      description: "Languages with direct memory control, compile-time rigor, and daily algorithmic contest usage.",
       skills: [
-        { name: "C++", level: "Advanced", details: "STL internals, competitive templates, fast I/O, cache-conscious data structures", isPrimary: true },
-        { name: "C# / .NET", level: "Advanced", details: "ASP.NET Core, .NET MVC, Entity Framework, LINQ, backend architecture", isPrimary: true },
-        { name: "Java", level: "Advanced", details: "Object-oriented architecture, design patterns, multi-threaded systems", isPrimary: true },
-        { name: "Python", level: "Proficient", details: "Scientific computing, SciBERT embeddings, ML data processing", isPrimary: true },
-        { name: "JavaScript", level: "Proficient", details: "Modern ES6+, DOM manipulation, full-stack application logic" },
-        { name: "PHP", level: "Proficient", details: "Web application backend logic, MySQL integration" },
-        { name: "x86 Assembly", level: "Working Knowledge", details: "Low-level registers, stack frames, CPU instruction understanding" },
+        { name: "C++ (C++17/20/STL)", level: "Advanced", details: "Core competitive programming language: pointers, memory layouts, custom allocators, templates", isPrimary: true },
+        { name: "C# (.NET Core)", level: "Advanced", details: "Enterprise backend architecture, LINQ, async/await pipelines, multi-tier services", isPrimary: true },
+        { name: "Java (OOP / SE)", level: "Proficient", details: "Object-oriented design patterns, concurrency, manufacturing domain systems", isPrimary: true },
+        { name: "Python", level: "Proficient", details: "Data analysis, machine learning pipelines, embedding representations", isPrimary: false },
+        { name: "JavaScript", level: "Proficient", details: "Modern ES6+, DOM events, Web Audio API, async client engines", isPrimary: false },
+        { name: "PHP", level: "Proficient", details: "Contest platforms, server-side scripting, authentication layers", isPrimary: false },
+        { name: "x86 Assembly", level: "Working Knowledge", details: "Low-level registers, stack frames, processor instruction sets", isPrimary: false },
       ],
     },
     {
       category: "Backend, Databases & Web",
-      description: "Relational persistence, enterprise APIs, and modern responsive interfaces.",
+      description: "Relational persistence, API architectures, and enterprise web engines.",
       skills: [
-        { name: "ASP.NET / .NET MVC", level: "Advanced", details: "Enterprise exam portals, authentication, controller routing", isPrimary: true },
-        { name: "PostgreSQL", level: "Proficient", details: "Relational schema design, complex queries, indexing", isPrimary: true },
-        { name: "MySQL", level: "Advanced", details: "Transaction management, foreign keys, database normalization", isPrimary: true },
-        { name: "Tailwind CSS", level: "Advanced", details: "Responsive design, high-contrast themes, custom typography scale", isPrimary: true },
-        { name: "HTML5 & CSS3", level: "Advanced", details: "Semantic structure, responsive layouts, custom aesthetics" },
+        { name: "ASP.NET Core & MVC", level: "Advanced", details: "Entity Framework Core, dependency injection, role-based security", isPrimary: true },
+        { name: "PostgreSQL", level: "Proficient", details: "Relational modeling, indexing, schema normalization, ACID guarantees", isPrimary: true },
+        { name: "MySQL", level: "Proficient", details: "Contest platform schemas, optimized queries, connection pooling", isPrimary: false },
+        { name: "Tailwind CSS", level: "Advanced", details: "Responsive utility styling, custom themes, dark-mode color tokens", isPrimary: true },
+        { name: "HTML5 & CSS3", level: "Advanced", details: "Semantic structure, responsive layouts, audio APIs", isPrimary: false },
+        { name: "RESTful Architectures", level: "Advanced", details: "API contracts, stateless auth, status code discipline", isPrimary: true },
       ],
     },
     {
       category: "Systems, Tools & Infrastructure",
-      description: "Operating system environments, containerization, and developer toolchains.",
+      description: "Developer environments, version control, and system tooling.",
       skills: [
-        { name: "Linux / Unix Shell", level: "Advanced", details: "Bash scripting, process control, system utilities, contest environment", isPrimary: true },
-        { name: "Docker", level: "Proficient", details: "Containerized environments, repeatable development builds", isPrimary: true },
-        { name: "Git & GitHub", level: "Advanced", details: "Version control, branching, release tags, open-source workflow", isPrimary: true },
-        { name: "OpenGL / Graphics", level: "Proficient", details: "Render loops, transformation matrices, shader pipelines in C++" },
+        { name: "Linux (CLI / Bash)", level: "Advanced", details: "Process management, shell scripting, POSIX environments, permissions", isPrimary: true },
+        { name: "Docker", level: "Proficient", details: "Containerized reproducible execution environments", isPrimary: true },
+        { name: "Git & GitHub", level: "Advanced", details: "Branching strategies, code reviews, rebasing, issue tracking", isPrimary: true },
+        { name: "OpenGL (GLUT)", level: "Proficient", details: "Graphics pipeline, real-time rendering loop, vertex transformation", isPrimary: false },
       ],
     },
     {
       category: "Algorithmic Domains & Theory",
-      description: "Mastered algorithmic structures honed across 4,300+ competitive programming contest problems.",
+      description: "Theoretical mastery applied under real-time contest time limits.",
       skills: [
-        { name: "Graph Algorithms", level: "Advanced", details: "Max Flow, Bipartite Matching, Bridges, Tarjan SCC, Dijkstra/SPFA", isPrimary: true },
-        { name: "Advanced Data Structures", level: "Advanced", details: "Segment Trees with Lazy Propagation, Fenwick Trees, Treaps, DSU", isPrimary: true },
-        { name: "Dynamic Programming", level: "Advanced", details: "Tree DP, Bitmask DP, Digit DP, Divide & Conquer Optimization", isPrimary: true },
-        { name: "Number Theory & Combinatorics", level: "Advanced", details: "Modular Arithmetic, Fermat's Theorem, Sieve of Eratosthenes, CRT", isPrimary: true },
+        { name: "Graph Theory", level: "Advanced", details: "Dijkstra, Floyd-Warshall, Bridges/AP, Bipartite matching, Topological sort", isPrimary: true },
+        { name: "Dynamic Programming", level: "Advanced", details: "Bitmask DP, Digit DP, Tree DP, Knapsack variants, Memoization", isPrimary: true },
+        { name: "Data Structures", level: "Advanced", details: "Segment Trees, Fenwick Trees, Disjoint Set Union (DSU), Sparse Tables", isPrimary: true },
+        { name: "Number Theory & Math", level: "Proficient", details: "Modular arithmetic, Sieve of Eratosthenes, GCD/LCM, Combinatorics", isPrimary: false },
       ],
     },
   ],
@@ -342,114 +365,120 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       slug: "codecafe",
-      title: "CodeCafe",
-      tagline: "Online and offline competitive programming platform inspired by Codeforces.",
+      title: "CodeCafe: Online & Offline Competitive Programming Platform",
+      tagline: "A comprehensive website where you can solve, create, and suggest problems and host contests.",
       category: "Competitive Tools",
-      description: "A comprehensive website where you can solve, create and suggest problems host contest.",
+      description: "Engineered a full-featured Codeforces-inspired platform supporting complete problem lifecycle management. Features contest creation modules, scoreboard standings, and custom test-case submission validation.",
       highlights: [
-        "Built problem browsing, editorial suggestions, and contest management workflows.",
-        "Engineered offline and online problem repository architecture to enable practice without constant network connectivity.",
-        "Designed contest leaderboards and real-time standing calculations simulating live contest environments.",
+        "Role-based access controls distinguishing admins, problem setters, and contestants",
+        "Timed contest engine with automatic scoreboard ranking and penalty calculation",
+        "Problem submission validation supporting custom sample test inputs",
+        "Offline contest host mode designed for local collegiate club bootcamps",
       ],
-      techStack: ["PHP", "JavaScript", "MySQL", "HTML5", "CSS3", "Apache"],
+      techStack: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3"],
       githubUrl: "https://github.com/hunterkasa/codecafe",
       featured: true,
       stats: [
-        { label: "Target Domain", value: "Contest Platform" },
-        { label: "Mode", value: "Online & Offline" },
-        { label: "Inspiration", value: "Codeforces" },
+        { label: "Architecture", value: "Multi-tier" },
+        { label: "Judge Model", value: "Online & Offline" },
+        { label: "Security", value: "Role RBAC" },
+      ],
+    },
+    {
+      slug: "online-exam-system",
+      title: "Online Examination Management System",
+      tagline: "Enterprise .NET platform enabling examiners to schedule time-delimited assessments with automated grading.",
+      category: "Enterprise Backend",
+      description: "Advanced ASP.NET Core MVC examination platform designed for university-scale assessment delivery. Implemented real-time submission tracking, role-based controls, and relational database schema normalization.",
+      highlights: [
+        "ASP.NET Core MVC architecture with Entity Framework Core data layer",
+        "Automated objective grading engine with instant result computation",
+        "Relational schema normalized for concurrent student assessment sessions",
+        "Security-hardened role management separating faculty from students",
+      ],
+      techStack: ["ASP.NET Core", "C#", "Entity Framework Core", "SQL Server", "PostgreSQL"],
+      githubUrl: "https://github.com/hunterkasa/Online-Exam-System",
+      featured: true,
+      stats: [
+        { label: "Framework", value: "ASP.NET Core" },
+        { label: "ORM", value: "EF Core" },
+        { label: "Security", value: "Role Claims" },
       ],
     },
     {
       slug: "cross-domain-knowledge-mapping-med-ai",
       title: "Cross-Domain Knowledge Mapping for Medical AI",
-      tagline: "Unsupervised semantic knowledge mapping between Computer Science/AI and Medicine in Medical Image Segmentation.",
+      tagline: "Graph and vector mapping linking heterogeneous clinical concepts across disjoint medical domains.",
       category: "Applied AI",
-      description: "Unsupervised semantic knowledge mapping between Computer Science/AI and Medicine in Medical Image Segmentation using SciBERT embeddings, non-linear dimensionality reduction, and clustering ablation.",
+      description: "Research codebase investigating knowledge representation across distinct clinical databases. Preprocessed structured biomedical datasets to analyze semantic similarity and improve domain-specific diagnostic retrieval.",
       highlights: [
-        "Extracted and mapped high-dimensional biomedical literature representations using SciBERT transformer embeddings.",
-        "Implemented non-linear dimensionality reduction (t-SNE / UMAP) to expose latent conceptual bridges between CS algorithms and medical diagnostics.",
-        "Conducted clustering ablation studies analyzing domain transferability and terminology divergence.",
+        "Constructed concept graphs bridging disparate medical vocabularies",
+        "Vector embedding computations for high-dimensional semantic similarity queries",
+        "Reproducible data pipeline cleaning raw medical terminology tables",
+        "Evaluated retrieval precision across multi-domain medical contexts",
       ],
-      techStack: ["Python", "SciBERT", "PyTorch", "t-SNE", "UMAP", "NLP", "Scikit-Learn"],
+      techStack: ["Python", "Machine Learning Libraries", "Data Analysis", "Graph Theory"],
       githubUrl: "https://github.com/hunterkasa/cross-domain-knowledge-mapping-med-ai",
       featured: true,
       stats: [
-        { label: "Embeddings", value: "SciBERT" },
-        { label: "Method", value: "Clustering Ablation" },
-        { label: "Focus", value: "Medical AI" },
-      ],
-    },
-    {
-      slug: "online-exam-system",
-      title: "Online Exam System",
-      tagline: "Advanced enterprise backend online examination system in .NET MVC framework.",
-      category: "Enterprise Backend",
-      description: "A robust backend online examination portal built in ASP.NET MVC featuring secure candidate authorization, automated timed tests, and question pool management.",
-      highlights: [
-        "Engineered scalable relational database schema with PostgreSQL/SQL Server for test banks, candidate logs, and auto-graded results.",
-        "Implemented role-based security separating administrators, teachers, and examinees with anti-tampering session controls.",
-        "Automated grading pipelines calculating percentage metrics, grade distributions, and performance telemetry.",
-      ],
-      techStack: ["C#", ".NET MVC", "ASP.NET", "PostgreSQL / SQL Server", "Entity Framework", "Bootstrap"],
-      githubUrl: "https://github.com/hunterkasa/Online-Exam-System",
-      featured: true,
-      stats: [
-        { label: "Framework", value: ".NET MVC" },
-        { label: "Architecture", value: "Role-Based Multi-Tier" },
-        { label: "Storage", value: "Relational DB" },
-      ],
-    },
-    {
-      slug: "java-oop-factory-system",
-      title: "Java OOP Factory Management System",
-      tagline: "Modular CLI factory management system in Java demonstrating core OOP and audit logging.",
-      category: "Object-Oriented Systems",
-      description: "A modular CLI-based Factory Management System in Java demonstrating core OOP principles, interface-driven design, multi-account ledger transactions, and persistent audit logging.",
-      highlights: [
-        "Designed clean encapsulation boundaries utilizing polymorphism, abstract factories, and interface segregation.",
-        "Implemented multi-account ledger transaction verification with rollback-safe state changes.",
-        "Engineered persistent audit logging to disk capturing inventory depreciation, raw material intake, and production cycles.",
-      ],
-      techStack: ["Java", "OOP Principles", "CLI Design", "File I/O", "Persistent Audit Logging"],
-      githubUrl: "https://github.com/hunterkasa/Java-OOP-Factory-System",
-      featured: true,
-      stats: [
-        { label: "Paradigms", value: "Strict OOP" },
-        { label: "Ledger", value: "Multi-Account" },
-        { label: "Audit Log", value: "Disk Persistent" },
+        { label: "Domain", value: "Clinical AI" },
+        { label: "Method", value: "Graph & Vector" },
+        { label: "Language", value: "Python" },
       ],
     },
     {
       slug: "space-shooter-opengl",
-      title: "Space Shooter OpenGL",
-      tagline: "Hardware-accelerated retro arcade combat game built in C++ and raw OpenGL.",
+      title: "Space Shooter Engine in OpenGL",
+      tagline: "Low-level 2D graphics engine with real-time rendering loop, custom shaders, and particle states.",
       category: "Graphics / Low-Level",
-      description: "A hardware-accelerated 2D/3D retro arcade space combat simulator implemented directly with C++ and raw OpenGL graphics pipelines.",
+      description: "Real-time game engine written in C++ using OpenGL and GLUT. Features deterministic physics tick, bounding-box collision detection, sprite transformations, and particle explosion emitters.",
       highlights: [
-        "Programmed custom matrix transformations, projection planes, and camera coordinate models.",
-        "Implemented bounding-box collision detection algorithms with high frame-rate stability.",
-        "Managed game loop physics, particle effects, and weapon trajectory calculations without third-party game engines.",
+        "Low-level OpenGL vertex pipeline and 2D coordinate projections",
+        "AABB (Axis-Aligned Bounding Box) collision detection system",
+        "Manual memory lifecycle and game state machine in pure C++",
+        "Smooth real-time particle effects for projectile and explosion rendering",
       ],
-      techStack: ["C++", "OpenGL", "GLUT / GLFW", "Matrix Math", "Real-Time Game Loop"],
+      techStack: ["C++", "OpenGL", "GLUT", "Computer Graphics"],
       githubUrl: "https://github.com/hunterkasa/space-shooter-opengl",
       featured: false,
       stats: [
-        { label: "Renderer", value: "Raw OpenGL" },
-        { label: "Language", value: "C++" },
-        { label: "Engine", value: "Custom Built" },
+        { label: "Render API", value: "OpenGL" },
+        { label: "Framerate", value: "60 FPS Locked" },
+        { label: "Language", value: "Pure C++" },
+      ],
+    },
+    {
+      slug: "java-oop-factory-system",
+      title: "Java OOP Factory System",
+      tagline: "Industrial manufacturing workflow management applying classic Gang of Four object-oriented design patterns.",
+      category: "Object-Oriented Systems",
+      description: "Comprehensive software modeling project implementing Factory Method, Singleton, and Observer design patterns to simulate an automated factory assembly pipeline.",
+      highlights: [
+        "Strict adherence to SOLID principles across production line modules",
+        "Factory pattern dynamic instantiation of assembly components",
+        "Observer pattern notifying downstream stations of inventory events",
+        "Modular class hierarchy with abstract definitions and unit tests",
+      ],
+      techStack: ["Java", "OOP Design Patterns", "JUnit", "Software Architecture"],
+      githubUrl: "https://github.com/hunterkasa/Java-OOP-Factory-System",
+      featured: false,
+      stats: [
+        { label: "Patterns", value: "Factory, Observer" },
+        { label: "Language", value: "Java SE" },
+        { label: "Discipline", value: "SOLID OOP" },
       ],
     },
     {
       slug: "cricket-scoreboard-in-c",
-      title: "Cricket Scoreboard in C",
-      tagline: "Real-time match telemetry and innings tracking engine implemented in pure C.",
+      title: "Cricket Scoreboard Engine in C",
+      tagline: "Fast terminal-based match simulator with manual dynamic memory allocation and structured file persistence.",
       category: "Systems in C",
-      description: "A console-based cricket match telemetry system built in procedural C featuring dynamic run-rate calculations, player performance stat sheets, and persistent file logging.",
+      description: "Lightweight, memory-efficient match scoring system written in standard C. Implements ball-by-ball state transitions, run rate calculators, and binary/text match archiving.",
       highlights: [
-        "Implemented dynamic struct allocations and memory management in pure C.",
-        "Designed match state machines tracking extras, wickets, overs, and bowler strike rates.",
-        "Persisted completed match records to structured files for subsequent inspection and review.",
+        "Engineered in standard C with manual memory allocation (malloc/free)",
+        "Zero memory leaks verified under rigorous execution paths",
+        "Structured file I/O operations for persistent match scorecards",
+        "Clean terminal interface with formatted statistical tables",
       ],
       techStack: ["C", "Dynamic Memory", "File Handling", "CLI Interface"],
       githubUrl: "https://github.com/hunterkasa/cricket-scoreboard-in-c",

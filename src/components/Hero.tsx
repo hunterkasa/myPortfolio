@@ -8,15 +8,12 @@ import {
   ArrowUpRight, 
   Copy, 
   Check, 
-  Trophy, 
   ChevronRight, 
-  Phone, 
+  FileText, 
   Terminal, 
   MapPin, 
   Clock, 
-  Disc3, 
-  Headphones,
-  Sparkles
+  Headphones
 } from "lucide-react";
 
 export default function Hero() {
@@ -82,7 +79,7 @@ export default function Hero() {
             <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest font-bold">
               <span className="text-[#c084fc]">{portfolioData.personal.institution}</span>
               <span className="text-[#c084fc]/40">/</span>
-              <span className="text-[#e9d5ff]">{portfolioData.personal.department}</span>
+              <span className="text-[#e9d5ff]">CSE & ACM COACHING</span>
             </div>
 
             {/* Name / Title */}
@@ -112,7 +109,7 @@ export default function Hero() {
             <p className="text-base sm:text-lg text-[#f8f4ff] font-normal leading-relaxed max-w-2xl">
               {portfolioData.personal.tagline}{" "}
               <span className="text-[#d8c8f2]">
-                Undergraduate engineer at AIUB specializing in C++, .NET, systems programming, and competitive problem solving.
+                Undergraduate engineer at AIUB and Trainee ACM Coach specializing in C++, .NET Core, systems programming, and competitive problem solving.
               </span>
             </p>
 
@@ -162,6 +159,19 @@ export default function Hero() {
                 <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
               </a>
 
+              <a
+                href={portfolioData.personal.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-pointer inline-flex items-center gap-2 px-4 py-3 text-sm font-mono text-[#f8f4ff] bg-[#20173e] border border-[#3e2c6c] hover:border-[#c084fc] hover:text-[#e9d5ff] focus-visible:ring-2 focus-visible:ring-[#c084fc] focus-visible:outline-none rounded-lg transition-all active:scale-[0.98] group shadow-sm"
+                title="View and download official Resume (PDF)"
+                aria-label="View official resume PDF in a new tab"
+              >
+                <FileText className="w-4 h-4 text-[#c084fc] group-hover:text-[#e9d5ff] transition-colors" aria-hidden="true" />
+                <span className="font-semibold">RESUME (PDF)</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#9f8ec2] group-hover:text-[#c084fc] transition-colors" aria-hidden="true" />
+              </a>
+
               <button
                 type="button"
                 onClick={copyEmail}
@@ -180,16 +190,6 @@ export default function Hero() {
                   </>
                 )}
               </button>
-
-              <a
-                href={`tel:${portfolioData.contact.phone}`}
-                className="cursor-pointer inline-flex items-center gap-1.5 px-3 py-3 text-xs font-mono text-[#d8c8f2] hover:text-white focus-visible:ring-2 focus-visible:ring-[#c084fc] focus-visible:outline-none rounded transition-colors font-medium"
-                title="Direct Phone Line"
-                aria-label={`Call Kazi Shoiab Ahmed Saad at ${portfolioData.contact.phone}`}
-              >
-                <Phone className="w-3.5 h-3.5 text-[#c084fc]" aria-hidden="true" />
-                <span>{portfolioData.contact.phone}</span>
-              </a>
             </div>
 
             {/* Embedded Interactive Lofi Tape Deck */}
@@ -198,14 +198,14 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column (5 cols): Cassette Album Sleeve Featuring User Portrait */}
+          {/* Right Column (5 cols): Cassette Album Sleeve Featuring User Portrait & ICPC Banner */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center">
-            <div className="w-full max-w-[420px] bg-[#17102e] p-4 border border-[#322358] rounded-2xl relative shadow-2xl overflow-hidden group">
+            <div className="w-full max-w-[480px] bg-[#17102e] p-4 border border-[#322358] rounded-2xl relative shadow-2xl overflow-hidden group">
               {/* Sleeve Vintage Header */}
               <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#2a1d47] text-[11px] font-mono">
                 <span className="flex items-center gap-1.5 text-[#f8f4ff] font-medium">
                   <Terminal className="w-3.5 h-3.5 text-[#c084fc]" aria-hidden="true" />
-                  <span>CASSETTE // SIDE_A</span>
+                  <span>ICPC_REGIONAL // CASSETTE_SLEEVE</span>
                 </span>
                 <span className="flex items-center gap-1 text-[#d8c8f2] font-semibold">
                   <MapPin className="w-3 h-3 text-[#c084fc]" aria-hidden="true" />
@@ -213,19 +213,19 @@ export default function Hero() {
                 </span>
               </div>
 
-              {/* Cropped Portrait Framed with Analog Album Sleeve Border */}
-              <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden border border-[#3e2c6c] bg-[#0c0817]">
+              {/* Landscape/Wide Portrait Framed with Analog Album Sleeve Border */}
+              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-[#3e2c6c] bg-[#0c0817]">
                 <Image
                   src={portfolioData.personal.profileImage}
-                  alt={`Portrait of ${portfolioData.personal.name}`}
+                  alt={`Portrait of ${portfolioData.personal.name} at ICPC Asia Dhaka Regional Contest`}
                   fill
-                  sizes="(max-width: 768px) 100vw, 420px"
+                  sizes="(max-width: 768px) 100vw, 480px"
                   priority
-                  className="object-cover object-[center_28%] filter contrast-[1.05] group-hover:scale-102 transition-transform duration-700"
+                  className="object-cover object-center filter contrast-[1.05] group-hover:scale-102 transition-transform duration-700"
                 />
                 
                 {/* Subtle bottom vignette overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0817] via-transparent to-transparent opacity-45 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0817]/80 via-transparent to-transparent opacity-60 pointer-events-none" />
                 
                 {/* Cassette Sleeve Spine Badge */}
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs font-mono text-[#f8f4ff] bg-[#120c24]/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-[#3e2c6c]">
@@ -239,19 +239,19 @@ export default function Hero() {
                     <span>@hunterkasa_</span>
                     <ArrowUpRight className="w-3 h-3 opacity-70 group-hover/badge:opacity-100" aria-hidden="true" />
                   </a>
-                  <span className="text-[#e9d5ff] font-medium">AIUB CSE</span>
+                  <span className="text-[#e9d5ff] font-medium">ICPC REGIONALIST</span>
                 </div>
               </div>
 
               {/* Cassette Sleeve Metadata */}
               <div className="mt-4 pt-3 border-t border-[#2a1d47] grid grid-cols-2 gap-2 text-[11px] font-mono">
                 <div className="p-2.5 bg-[#120c24] border border-[#2a1d47] rounded">
-                  <div className="text-[10px] text-[#d8c8f2] uppercase font-semibold">Competitive Peak</div>
-                  <div className="text-[#f8f4ff] font-bold mt-0.5">CF 1618 Expert</div>
+                  <div className="text-[10px] text-[#d8c8f2] uppercase font-semibold">Competitive Event</div>
+                  <div className="text-[#f8f4ff] font-bold mt-0.5">ICPC Asia Dhaka</div>
                 </div>
                 <div className="p-2.5 bg-[#120c24] border border-[#2a1d47] rounded">
-                  <div className="text-[10px] text-[#d8c8f2] uppercase font-semibold">Accepted Tasks</div>
-                  <div className="text-[#c084fc] font-bold mt-0.5">4,300+ Solved</div>
+                  <div className="text-[10px] text-[#d8c8f2] uppercase font-semibold">Competitive Peak</div>
+                  <div className="text-[#c084fc] font-bold mt-0.5">CF 1618 Expert</div>
                 </div>
               </div>
             </div>
