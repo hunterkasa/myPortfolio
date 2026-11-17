@@ -118,6 +118,16 @@ export interface PortfolioData {
   };
   competitivePlatforms: PlatformHandle[];
   achievements: Achievement[];
+  showVideoIntro: boolean;
+  videoIntro: {
+    src: string;
+    poster: string;
+    title: string;
+    label: string;
+    duration: string;
+    codec: string;
+    summary: string;
+  };
   skills: SkillCategory[];
   projects: Project[];
 }
@@ -313,6 +323,17 @@ export const portfolioData: PortfolioData = {
       metrics: "Rank 29",
     },
   ],
+
+  showVideoIntro: true,
+  videoIntro: {
+    src: "/intro.mp4",
+    poster: "/intro-poster.jpg",
+    title: "TAPE 00 // CANDIDATE INTRO",
+    label: "INTRO_LOG.MP4",
+    duration: "01:42",
+    codec: "H.264 // STEREO AAC",
+    summary: "Personal candidate introduction covering academic background at AIUB, competitive programming milestones, engineering philosophy, and technical focus.",
+  },
 
   skills: [
     {

@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import VideoIntro from "@/components/VideoIntro";
 import ExperiencePhilosophy from "@/components/ExperiencePhilosophy";
 import CompetitiveProgramming from "@/components/CompetitiveProgramming";
 import TechnicalArsenal from "@/components/TechnicalArsenal";
@@ -17,6 +18,9 @@ export default function Home() {
       <main className="flex-1 w-full">
         {/* 1. Lofi Desk Hero: Live Dhaka Clock, Web Audio Rain Synthesizer, Cassette Sleeve Portrait */}
         <Hero />
+
+        {/* 1.5 Video Introduction: Candidate Presentation for Faculty Evaluation & Engineering Profile */}
+        <VideoIntro />
 
         {/* 2. Liner Notes: Engineering Philosophy, Mindset & AIUB Academic Track */}
         <ExperiencePhilosophy />

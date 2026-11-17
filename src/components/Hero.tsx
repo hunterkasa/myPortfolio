@@ -9,6 +9,8 @@ import {
   Copy, 
   Check, 
   ChevronRight, 
+  ChevronDown,
+  Play,
   FileText, 
   Terminal, 
   MapPin, 
@@ -158,6 +160,18 @@ export default function Hero() {
                 <span>EXPLORE PROJECTS</span>
                 <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
               </a>
+
+              {portfolioData.showVideoIntro && (
+                <a
+                  href="#intro"
+                  className="cursor-pointer inline-flex items-center gap-2 px-4 py-3 text-sm font-mono text-[#f8f4ff] bg-[#20173e] border border-[#5b3f9c] hover:border-[#c084fc] hover:text-[#e9d5ff] focus-visible:ring-2 focus-visible:ring-[#c084fc] focus-visible:outline-none rounded-lg transition-all active:scale-[0.98] group shadow-sm"
+                  aria-label="Scroll down to candidate video introduction"
+                >
+                  <Play className="w-4 h-4 text-[#c084fc] fill-[#c084fc]/30 group-hover:text-[#e9d5ff] transition-colors" aria-hidden="true" />
+                  <span className="font-semibold">WATCH INTRO</span>
+                  <ChevronDown className="w-3.5 h-3.5 text-[#9f8ec2] group-hover:text-[#c084fc] transition-colors" aria-hidden="true" />
+                </a>
+              )}
 
               <a
                 href={portfolioData.personal.resumeUrl}
